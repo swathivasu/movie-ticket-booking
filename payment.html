@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="popup-content">
+            <h2>Payment</h2>
+            <p>Total Amount: ₹<span id="payment-amount">0</span></p>
+            <button id="confirm-payment">Confirm Payment</button>
+        </div>
+    </div>
+    <script>
+        // Retrieve and display the payment amount from local storage
+        const paymentAmount = document.getElementById('payment-amount');
+        paymentAmount.innerText = localStorage.getItem('paymentAmount') || '0';
+
+        // Confirm payment button
+        document.getElementById('confirm-payment').addEventListener('click', () => {
+            alert("Payment confirmed! Your tickets are booked.");
+            // Optionally clear local storage or navigate to another page
+            localStorage.removeItem('paymentAmount');
+        });
+    </script>
+</body>
+</html>
